@@ -11,9 +11,8 @@ class RsiStrategy(IStrategy):
     Enter when RSI drops below 30, exit when it rises above 70. No machine
     learning, about five lines of actual logic.
 
-    This is the control for the experiment. The XGBoost strategy has to beat
-    this after fees to justify the extra complexity of a trained model. Over
-    the main test window it did not: this lost 19.4% and the model lost 61.6%.
+    The control for the experiment. XGBoost had to beat this after fees to
+    justify a trained model. It did not: this lost 19.4%, the model 61.6%.
     """
 
     timeframe = "1h"

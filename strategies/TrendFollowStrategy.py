@@ -9,20 +9,19 @@ class TrendFollowStrategy(IStrategy):
     """
     Rule-based multi-filter trend following.
 
-    This was written after the XGBoost run lost 61% over the same period. The
-    post-mortem on that run pointed at three things, and each one is addressed
-    here:
+    Written after the XGBoost run lost 61% over the same period. It addresses
+    three problems from that run:
 
-    1. It bought into downtrends. The 200 EMA is used here as a regime gate,
-       so entries only fire when price is above it.
+    1. It bought into downtrends. A 200 EMA regime gate now blocks entries
+       below the long-term trend.
 
-    2. It traded too often. That run took 2,380 trades in 19 months and paid
-       fees on all of them. Entries here need a fresh EMA crossover plus three
-       confirming filters, which brings the count down to a few hundred.
+    2. It took 2,380 trades in 19 months and paid fees on all of them. Entries
+       now need a fresh EMA crossover plus three confirming filters, which
+       brings the count to a few hundred.
 
-    3. It capped winners and held losers. The ROI cap here is set high enough
-       that it rarely closes a trade early, and a trailing stop handles the
-       exit once a position is up 6%. Losers are cut at -8%.
+    3. It capped winners and held losers. The ROI cap is high enough to rarely
+       close early, a trailing stop handles the exit from +6%, and losers are
+       cut at -8%.
 
     Filters:
       EMA200            regime gate, only long above it
@@ -30,7 +29,7 @@ class TrendFollowStrategy(IStrategy):
       MACD histogram    momentum confirmation, must be positive
       RSI below 70      avoids entering an overbought spike
 
-    Backtest results are in the README. Two of the three windows lost money.
+    Backtest results are in the README. Two of three windows lost money.
     """
 
     timeframe = "1h"
