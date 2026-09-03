@@ -1,0 +1,19 @@
+# Freqtrade working directory: configs with live keys, market data,
+# trained models, backtest output, logs.
+user_data/
+config.json
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Data and model artifacts
+*.feather
+*.h5
+*.joblib
+*.pkl
+*.zip
