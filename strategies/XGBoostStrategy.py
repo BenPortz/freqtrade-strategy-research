@@ -22,8 +22,10 @@ class XGBoostStrategy(IStrategy):
     move over the next 24 candles. A trade opens when the model predicts a rise
     above 2% and the dissimilarity filter passes.
 
-    Result: lost 61.6% over 2024-06 to 2026-01 across 2,380 trades, against
-    19.4% for the plain RSI baseline. See the README for the post-mortem.
+    On the 2024-06 to 2026-01 downturn it lost 61.6% across 2,380 trades,
+    against 19.4% for the RSI baseline. The README covers what that pointed
+    to: overtrading, transaction costs, regime filtering and target
+    construction.
     """
 
     # Strategy settings

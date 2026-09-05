@@ -29,7 +29,8 @@ class TrendFollowStrategy(IStrategy):
       MACD histogram    momentum confirmation, must be positive
       RSI below 70      avoids entering an overbought spike
 
-    Backtest results are in the README. Two of three windows lost money.
+    Backtested on the 2024-06 to 2026-01 downturn first, then on the
+    2023-10 to 2024-04 uptrend. Results are in the README.
     """
 
     timeframe = "1h"

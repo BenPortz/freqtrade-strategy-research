@@ -8,11 +8,11 @@ class RsiStrategy(IStrategy):
     """
     Rule-based baseline: RSI mean reversion.
 
-    Enter when RSI drops below 30, exit when it rises above 70. No machine
-    learning, about five lines of actual logic.
+    Enter when RSI drops below 30, exit when it rises above 70. About five
+    lines of logic, with a 10% stop on every trade.
 
-    The control for the experiment. XGBoost had to beat this after fees to
-    justify a trained model. It did not: this lost 19.4%, the model 61.6%.
+    This is the baseline the XGBoost model had to beat after fees. On the
+    2024-06 to 2026-01 downturn it lost 19.4% against 61.6% for the model.
     """
 
     timeframe = "1h"
